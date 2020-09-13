@@ -1,5 +1,6 @@
 class Board
-  attr_accessor :rows,:cols
+  attr_reader :rows,:cols
+  #initialized the board with default size
   def initialize(rows=12,cols=4)
     @rows=rows
     @cols=cols
@@ -8,7 +9,7 @@ class Board
     @used_rows_board=0
     @used_rows_leads=0
   end
-
+  #prints board with leads too
   def print_board
     for i in 0...@rows
       puts"______________________"
@@ -28,7 +29,7 @@ class Board
       puts ""
     end
   end
-
+  #separate method for board to set its new rows
   def set_row_board(new_row)
     if @used_rows_board<@rows && new_row.length==@cols
       for i in 0...@cols
@@ -39,7 +40,7 @@ class Board
       raise "the board is already full"
     end
   end
-
+  #same functionality as above but with leads
   def set_row_lead(new_row)
     if @used_rows_leads<@rows && new_row.length==@cols
       for i in 0...@cols
